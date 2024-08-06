@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/hsn/test_ws/src/arm_hardware_interface/build/devel/setup.sh

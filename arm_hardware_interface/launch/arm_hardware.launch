@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+  <launch>
+      
+    <!-- <rosparam file="$(find arm_new_moveit)/config/ros_controllers.yaml" command="load"/> -->
+    <rosparam file="$(find new_new_moveit_config)/config/ros_controllers.yaml" command="load"/>
+
+    <rosparam file="$(find arm_hardware_interface)/config/joint_state_controller.yaml" command="load"/>
+    
+    <arg name="model" default="$(find arm_hardware_interface)/urdf/no_gripper_arm_urdf.urdf"/>
+
+    <!-- <arg name="model" default="urdf/arm.urdf"/> -->
+    <arg name="gui" default="true" />
+    
+    <param name="robot_description" command="cat $(arg model)" />
+    <param name="use_gui" value="$(arg gui)"/> 
+
+    <node name="arm_hardware_interface" pkg="arm_hardware_interface" type="arm_hardware_interface" output="screen"/>
+
+
+    <node name="joint_state_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/" args="arm/joint_state_controller" />
+
+    <!-- <node name="rviz" pkg="rviz" type="rviz"/> -->
+
+    <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" /> -->
+    
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="new_arm_controller"/>
+
+  </launch>

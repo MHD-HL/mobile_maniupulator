@@ -1,0 +1,8 @@
+prefix=/home/hsn/test_ws/src/arm_hardware_interface/build/devel
+
+Name: arm_hardware_interface
+Description: Description of arm_hardware_interface
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: roscpp rospy hardware_interface controller_manager sensor_msgs
