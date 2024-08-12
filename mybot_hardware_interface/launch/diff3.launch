@@ -1,0 +1,18 @@
+<launch>
+    <!-- Include the empty world launch file from the gazebo_ros package -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <!-- Uncomment and set the world name if you have a specific world to load -->
+        <!-- <arg name="world_name" value="$(find mybot_hardware_interface)/worlds/ddrobot.world"/> -->
+
+        <arg name="paused" default="false" />
+        <arg name="use_sim_time" default="true" />
+        <arg name="gui" default="true" />
+        <arg name="headless" default="false" />
+        <arg name="debug" default="false" />
+    </include>
+
+    <!-- Spawn dd_robot into Gazebo -->
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen"
+        args="-file $(find mybot_hardware_interface)/urdf/diff2.urdf -urdf -model dd_robot" />
+</launch>
+  
