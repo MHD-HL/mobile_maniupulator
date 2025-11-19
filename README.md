@@ -20,4 +20,4 @@ Features
 
  - Mobile navigation to the object's position
 
-    Object grasping and manipulation with a robotic arm
+ - Object grasping and manipulation with a robotic arm
